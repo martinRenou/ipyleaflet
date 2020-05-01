@@ -59,6 +59,10 @@ require('spin.js/spin.css');
 require('./jupyter-leaflet.css');
 require('leaflet-search/dist/leaflet-search.src.css')
 
+// Forcibly load the marker icon images to be in the bundle.
+require('leaflet/dist/images/marker-shadow.png');
+require('leaflet/dist/images/marker-icon.png');
+require('leaflet/dist/images/marker-icon-2x.png');
 
 //Exports
 module.exports = {
