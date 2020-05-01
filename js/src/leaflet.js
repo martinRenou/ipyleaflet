@@ -10,6 +10,7 @@ require('leaflet-rotatedmarker');
 require('leaflet-fullscreen');
 require('leaflet-transform');
 require('leaflet.awesome-markers');
+require('leaflet-search');
 
 // https://github.com/Leaflet/Leaflet/issues/4968
 // Marker file names are hard-coded in the leaflet source causing

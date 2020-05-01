@@ -730,6 +730,12 @@ class LayersControl(Control):
     _model_name = Unicode('LeafletLayersControlModel').tag(sync=True)
 
 
+class SearchControl(Control):
+    _view_name = Unicode('LeafletSearchControlView').tag(sync=True)
+    _model_name = Unicode('LeafletSearchControlModel').tag(sync=True)
+    layer = Instance(LayerGroup).tag(sync=True, **widget_serialization)
+
+
 class MeasureControl(Control):
     _view_name = Unicode('LeafletMeasureControlView').tag(sync=True)
     _model_name = Unicode('LeafletMeasureControlModel').tag(sync=True)
