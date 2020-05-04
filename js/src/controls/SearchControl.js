@@ -9,39 +9,41 @@ export class LeafletSearchControlModel extends control.LeafletControlModel {
     return{
       _view_name: 'LeafletSearchControlView',
       _model_name: 'LeafletSearchControlModel',
-      layer: null,
+      url: null,
+      jsonpParam: 'json_callback',
+      propertyName: 'display_name',
+      propertyLoc: ['lat','lon'],
+      autoType: false,
+      autoCollapse: false,
+      zoom:10,
+      animateLocation:false,
+      marker: L.circleMarker([0,0],{radius:30}),
     };
   }
 }
 
-// LeafletSearchControlModel.serializers = {
-//   ...control.LeafletControlModel,
-//   layer: { deserialize: widgets.unpack_models },
-// };
 
 export class LeafletSearchControlView extends control.LeafletControlView{
   initialize(parameters) {
     super.initialize(parameters);
     this.map_view = this.options.map_view;
-    console.log("sachin DEBUGGING................");
-    console.log(this.model.get('layer'));
   }
 
   create_obj() {
-    console.log("sachin DEBUGGING................");
-    console.log(this.model.get('layer'));
     this.obj = L.control.search(this.get_options());
-    console.log(Object.keys(this.obj));
-    // this.obj.setLayer(this.model.get('layer'));
   }
 
   get_options() {
-    console.log("kharude DEBUGGING................");
-    console.log(this.model.get('layer'));
     const options = super.get_options();
-    options['layer'] = this.model.get('layer');
-    console.log(this.model.get('layer').constructor.name);
-    console.log(Object.keys(options['layer']));
+    options['url'] = this.model.get('url');
+    options['zoom'] = this.model.get('zoom');
+    options['jsonpParam'] = this.model.get('jsonpParam');
+    options['propertyLoc'] = this.model.get('propertyLoc');
+    options['autoType'] = this.model.get('autoType');
+    options['autoCollapse'] = this.model.get('autoCollapse');
+    options['animateLocation'] = this.model.get('animateLocation')
+    options['marker'] = this.model.get('marker');
+    options['propertyName'] = this.model.get('propertyName')
     return options;
   }
 }

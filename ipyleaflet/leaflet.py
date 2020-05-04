@@ -580,7 +580,7 @@ class GeoJSON(FeatureGroup):
                 self.data['properties']['style'].update(self.style)
             elif self.data['type'] == 'FeatureCollection':
                 for feature in self.data['features']:
-                    feature['properties']['style'].update(self.style)
+                    feature['properties']['style'] = self.style
         return self.data
 
     def __init__(self, **kwargs):
@@ -729,7 +729,11 @@ class LayersControl(Control):
 class SearchControl(Control):
     _view_name = Unicode('LeafletSearchControlView').tag(sync=True)
     _model_name = Unicode('LeafletSearchControlModel').tag(sync=True)
-    layer = Instance(LayerGroup).tag(sync=True, **widget_serialization)
+    url = Unicode().tag(sync=True, o=True)
+    zoom = Int(10).tag(sync=True, o=True)
+    propertyName = Unicode().tag(sync=True, o=True)
+    propertyLoc = List(['lat', 'lon']).tag(sync=True, o=True)
+    jsonpParam = Unicode('json_callback').tag(sync=True, o=True)
 
 
 class MeasureControl(Control):
