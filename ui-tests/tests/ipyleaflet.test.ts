@@ -32,6 +32,7 @@ const notebookList = [
   "Popup",
   "ScaleControl",
   "SplitMapControl",
+  "Subitems",
   "TileLayer",
   "WidgetControl",
   "ZoomControl",
